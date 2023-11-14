@@ -71,11 +71,16 @@ If you'd like to contribute to this project, please follow the Contribution Guid
 
 Acknowledgments
 Special thanks to API Provider for providing the text-to-image API.
-Hat tip to anyone whose code was used or inspired in this project.
 
 
+FAQ
+Q: How do I obtain an API key?
+A: Follow the instructions provided by the API provider on their website to obtain an API key.
 
-Make sure to replace placeholders such as `your-username`, `api-provider-link`, and others with your actual information. Additionally, update the license file (`LICENSE`) and contribution guidelines (`CONTRIBUTING.md`) based on your preferences and project needs.
+Q: Can I customize the styling of the generated image?
+A: Yes, you can modify the CSS styles in the style.css file to customize the appearance of the generated image.
+
+
 
 
 
