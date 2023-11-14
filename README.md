@@ -15,7 +15,6 @@ This project is an AI image generator that converts text input into images using
 - [Folder Structure](#folder-structure)
 - [Dependencies](#dependencies)
 - [Contributing](#contributing)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Prerequisites
