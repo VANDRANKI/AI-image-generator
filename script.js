@@ -11,11 +11,11 @@ const updateImageCard = (imgDataArray) => {
     const imgElement = imgCard.querySelector("img");
     const downloadBtn = imgCard.querySelector(".download-btn");
 
-    // Set the image source to the AI-generated image data
+    //Set the image source to the AI-generated image data
     const aiGeneratedImage = `data:image/jpeg;base64,${imgObject.b64_json}`;
     imgElement.src = aiGeneratedImage;
 
-    // When the image is loaded, remove the loading class and set download attributes
+    //When the image is loaded, remove the loading class and set download attributes
     imgElement.onload = () => {
       imgCard.classList.remove("loading");
       downloadBtn.setAttribute("href", aiGeneratedImage);
@@ -26,7 +26,7 @@ const updateImageCard = (imgDataArray) => {
 
 const generateAiImages = async (userPrompt, userImgQuantity) => {
   try {
-    // Send a request to the OpenAI API to generate images based on user inputs
+    //Send a request to the OpenAI API to generate images based on user inputs
     const response = await fetch(
       "https://api.openai.com/v1/images/generations",
       {
@@ -43,13 +43,11 @@ const generateAiImages = async (userPrompt, userImgQuantity) => {
         }),
       }
     );
-
     // Throw an error message if the API response is unsuccessful
     if (!response.ok)
       throw new Error(
         "Failed to generate AI images. Make sure your API key is valid."
       );
-
     const { data } = await response.json(); // Get data from the response
     updateImageCard([...data]);
   } catch (error) {
@@ -60,20 +58,16 @@ const generateAiImages = async (userPrompt, userImgQuantity) => {
     isImageGenerating = false;
   }
 };
-
 const handleImageGeneration = (e) => {
   e.preventDefault();
   if (isImageGenerating) return;
-
   // Get user input and image quantity values
   const userPrompt = e.srcElement[0].value;
   const userImgQuantity = parseInt(e.srcElement[1].value);
-
   // Disable the generate button, update its text, and set the flag
   generateBtn.setAttribute("disabled", true);
   generateBtn.innerText = "Generating";
   isImageGenerating = true;
-
   // Creating HTML markup for image cards with loading state
   const imgCardMarkup = Array.from(
     { length: userImgQuantity },
@@ -85,9 +79,7 @@ const handleImageGeneration = (e) => {
         </a>
       </div>`
   ).join("");
-
   imageGallery.innerHTML = imgCardMarkup;
   generateAiImages(userPrompt, userImgQuantity);
 };
-
 generateForm.addEventListener("submit", handleImageGeneration);
